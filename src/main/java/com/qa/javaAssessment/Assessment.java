@@ -1,8 +1,5 @@
 ﻿package com.qa.javaAssessment;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Assessment {
 
 	// Given a string, return a string where
@@ -34,23 +31,7 @@ public class Assessment {
 	// getBert("xxbeRTyy") ==> ""
 
 	public String getBert(String input) {
-		String sentence = "clive";
-		String regex = input;
-		Pattern pattern = Pattern.compile(regex);
-		String strMatch = sentence;
-		Matcher matcher = pattern.matcher(strMatch);
-		System.out.println(matcher.find());
-		//for (int i = input.length(); i-- );
-		StringBuilder rev = new StringBuilder(sentence);
-		System.out.println(rev.reverse());
-		return sentence;
-		
-		/*
-		 * String sentence3 = input; String sentence2 = " "; for (int i=0; i <
-		 * sentence3.length(); i++) { if(sentence3.substring(i, i+1).equals("bert")) {
-		 * sentence2 += sentence3.substring(i, i+1); } return sentence2.rev.reverse; }
-		 * return "";
-		 */
+		 return "";
 	}
 
 	// Given three ints, a b c, one of them is small, one is medium and one is
@@ -90,15 +71,22 @@ public class Assessment {
 	// superBlock("abbCCCddDDDeeEEE") ==> 3
 	// superBlock("") ==> 0
 
-	public int superBlock(String input) {        
-	//{ 
-			/*
-			 * int word = input.length(); int count = 0; for (int i = 1; i < word - 1; i++)
-			 * if (input.charAt(i - 1) == input.charAt(i + 1)) count++; return count;
-			 */
-		return "";
-	} 
-}
+	public int superBlock(String input) {
+		int len = input.length();
+		int count = 0;
+		int count2 = 1;
+		
+		if(len == 0)
+			return 0;
+		for (int i = 0; i < len; i++) {
+			if (i < len-1 && input.charAt(i) == input.charAt(i+1))
+				count2++;
+			else count2 = 1;
+			if (count2 > count)
+				count = count2;
+		}
+		return count;
+	}	
 	
 	//given a string - return the number of times "am" appears in the String ignoring case -
 	// BUT ONLY WHEN the word "am" appears without being followed or proceeded by other letters
@@ -108,14 +96,7 @@ public class Assessment {
 	//amISearch("I have been in Amsterdam") ==> 0
 
 	public int amISearch(String arg1) {
-		/*String regex = " am ";
-		String sentence = arg1;
-		Pattern pattern = Pattern.compile(regex);
-		String strMatch = sentence;
-		Matcher matcher = pattern.matcher(strMatch);
-		System.out.println(matcher.find());
-		for (int i=0; matcher) {*/
-		return -1;
+		return - 1;
 	}
 	
 	//given a number 
@@ -163,7 +144,7 @@ public class Assessment {
 	//largest("15 72 80 164") ==> 11
 	//largest("555 72 86 45 10") ==> 15
 	
-	public int largest(String arg1) {
+	public int largest(String arg1) { 
 		return -1;
 	}
 }
