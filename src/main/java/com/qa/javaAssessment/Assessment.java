@@ -45,15 +45,12 @@ public class Assessment {
 		System.out.println(rev.reverse());
 		return sentence;
 		
-		String sentence3 = input;
-		String sentence2 = " ";
-		for (int i=0; i < sentence3.length(); i++) {
-			if(sentence3.substring(i, i+1).equals("bert")) {
-				sentence2 += sentence3.substring(i, i+1);
-			}
-			return sentence2.rev.reverse;
-		}
-		return "";
+		/*
+		 * String sentence3 = input; String sentence2 = " "; for (int i=0; i <
+		 * sentence3.length(); i++) { if(sentence3.substring(i, i+1).equals("bert")) {
+		 * sentence2 += sentence3.substring(i, i+1); } return sentence2.rev.reverse; }
+		 * return "";
+		 */
 	}
 
 	// Given three ints, a b c, one of them is small, one is medium and one is
@@ -68,8 +65,9 @@ public class Assessment {
 	// evenlySpaced(4, 60, 9) ==> false
 
 	public boolean evenlySpaced(int a, int b, int c) {
-		for (a)
-		return false;
+		if(a==b && b==c) return true;
+		if(a==b || a==c || b==c) return false;
+		return ((Math.abs(a-b)== Math.abs(b-c)) || (Math.abs(a-c)==Math.abs(a-b)) ||( Math.abs(c-a)==Math.abs(b-c)));
 	}
 
 	// Given a string and an int n, return a string that removes n letters from the 'middle' of the string.
@@ -80,10 +78,8 @@ public class Assessment {
 	// nMid("Chocolate", 1) ==> "Choclate"
 
 	public String nMid(String input, int a) {
-		String string = input;
-		input.length() divide by 2 = num1, num 2/2 = num2, num1-1 + num1+1 = result;
-		
-		return "";
+		int len = input.length()/2;
+		return input.substring(0,len-a/2) + input.substring(len+a/2 + 1);
 	}
 
 
@@ -94,28 +90,15 @@ public class Assessment {
 	// superBlock("abbCCCddDDDeeEEE") ==> 3
 	// superBlock("") ==> 0
 
-	public int superBlock(String input) {
-		/*String word = "";
-		for (int i = 0; i< input.length(); i++) {
-			word += input.substring(i, i+1);
-			word += input.substring(i, i+1);
-			word += input.substring(i, i+1);
-		}
-		return word;*/
-		
-		/*for(int k = str.length() - 1; k >= 0; k--) {
-			reverse = reverse + str.charAt(k);
-		}
-		*/
-		int count = str.length();
-		String str = input;
-		for (int i=0; i < count - 1; i++);{
-			for (str.charAt(i + 1) == str.charAt(i - 1)count.i++);
-		}
-		
-		return count;
-
-	}
+	public int superBlock(String input) {        
+	//{ 
+			/*
+			 * int word = input.length(); int count = 0; for (int i = 1; i < word - 1; i++)
+			 * if (input.charAt(i - 1) == input.charAt(i + 1)) count++; return count;
+			 */
+		return "";
+	} 
+}
 	
 	//given a string - return the number of times "am" appears in the String ignoring case -
 	// BUT ONLY WHEN the word "am" appears without being followed or proceeded by other letters
@@ -125,15 +108,13 @@ public class Assessment {
 	//amISearch("I have been in Amsterdam") ==> 0
 
 	public int amISearch(String arg1) {
-		String regex = " am ";
+		/*String regex = " am ";
 		String sentence = arg1;
 		Pattern pattern = Pattern.compile(regex);
 		String strMatch = sentence;
 		Matcher matcher = pattern.matcher(strMatch);
 		System.out.println(matcher.find());
-		for (int i=0; matcher) {
-			
-		}
+		for (int i=0; matcher) {*/
 		return -1;
 	}
 	
@@ -183,7 +164,6 @@ public class Assessment {
 	//largest("555 72 86 45 10") ==> 15
 	
 	public int largest(String arg1) {
-		
 		return -1;
 	}
 }
