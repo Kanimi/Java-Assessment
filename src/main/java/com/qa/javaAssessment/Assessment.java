@@ -31,7 +31,17 @@ public class Assessment {
 	// getBert("xxbeRTyy") ==> ""
 
 	public String getBert(String input) {
-		 return "";
+		input = input.toLowerCase();
+		int b1 = input.toLowerCase().indexOf("bert");
+		int b2 = input.toLowerCase().indexOf("bert", b1 + 1);
+		String word = "";
+		if(b2 == -1)
+			return "";
+		String middle = input.substring(b1 + 4, b2);
+		for(int i = middle.length()-1; i>=0; i--) {
+			word += middle.substring(i, i+1);
+		}
+		return word; 
 	}
 
 	// Given three ints, a b c, one of them is small, one is medium and one is
@@ -96,7 +106,19 @@ public class Assessment {
 	//amISearch("I have been in Amsterdam") ==> 0
 
 	public int amISearch(String arg1) {
-		return - 1;
+		int count = 0;
+		if (arg1.substring(0, 3).toLowerCase().equals("am ")) {
+			count += 1;
+		}
+		if (arg1.substring(arg1.length()-3, arg1.length()).toLowerCase().equals(" am")) {
+			count += 1;
+		}
+		for (int i = 0; i<arg1.length()-4; i++) {
+			if (arg1.substring(i, i+4).toLowerCase().equals(" am ")) {
+				count += 1;
+			}
+		}
+		return count;
 	}
 	
 	//given a number 
@@ -113,18 +135,14 @@ public class Assessment {
 		
 		for (int i=1; i<=num; i++) {
 			if ( num % 15 == 0){
-				//System.out.println("FizzBuzz");
 				return "fizzbuzz";
 			}
 			else if ( num % 5 == 0){
-				//System.out.println("Buzz");
 				return "buzz";
 			}
 			else if (num % 3 == 0) {
-				//System.out.println("Fizz");
 				return "fizz";
 			}
-			//else System.out.println(num);
 			else return num + " ";
 		}
 		return null;
@@ -145,6 +163,20 @@ public class Assessment {
 	//largest("555 72 86 45 10") ==> 15
 	
 	public int largest(String arg1) { 
-		return -1;
+		String[] numStrings = arg1.split(" ");
+		int[] nums = new int[numStrings.length];
+		int sum = 0;
+		int result = 0;
+		for(int i = 0; i < nums.length; i++) {
+			nums[i] = Integer.parseInt(numStrings[i]);
+			while(nums[i] > 0) {
+				sum += nums[i] % 10;
+				nums[i] = nums[i] / 10;
+			}
+			if(sum > result)
+				result = sum;
+			sum = 0;
+		}
+		return result; 
 	}
 }
